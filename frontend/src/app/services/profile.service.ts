@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProfileService {
-  private apiUrl = 'http://localhost:5000/api/auth/profile';
+  private apiUrl = 'https://mean-job-portal-api.onrender.com/api/auth/profile';
 
   constructor(private http: HttpClient) {}
 

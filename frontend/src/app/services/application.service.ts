@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApplicationService {
-  private apiUrl = 'http://localhost:5000/api/applications';
+  private apiUrl = 'https://mean-job-portal-api.onrender.com/api/applications';
 
   constructor(private http: HttpClient) {}
 

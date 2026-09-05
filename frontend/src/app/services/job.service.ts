@@ -8,7 +8,7 @@ import { Job } from '../models/job.model';
   providedIn: 'root'
 })
 export class JobService {
-  private apiUrl = 'http://localhost:5000/api/jobs';
+  private apiUrl = 'https://mean-job-portal-api.onrender.com/api/jobs';
 
   constructor(private http: HttpClient) {}
 

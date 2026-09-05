@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5000/api/auth';
+  private apiUrl = 'https://mean-job-portal-api.onrender.com/api/auth';
 
   constructor(private http: HttpClient) {}
 
