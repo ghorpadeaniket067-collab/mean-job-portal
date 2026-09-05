@@ -1,0 +1,55 @@
+<section class="auth-page">
+  <div class="auth-card">
+    <div class="auth-decor"></div>
+
+    <div class="auth-header">
+      <div class="auth-icon">+</div>
+      <span>JOB PORTAL</span>
+      <h1>Create Account</h1>
+      <p>Join us and find your next opportunity.</p>
+    </div>
+
+    <form (ngSubmit)="register()">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input id="name" type="text" name="name"
+          [(ngModel)]="name" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email"
+          [(ngModel)]="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password"
+          [(ngModel)]="password" placeholder="Create a password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="role">Account Type</label>
+        <select id="role" name="role" [(ngModel)]="role">
+          <option value="Job Seeker">Job Seeker</option>
+          <option value="Recruiter">Recruiter</option>
+        </select>
+      </div>
+
+      @if (message) {
+        <p class="success-message">{{ message }}</p>
+      }
+
+      @if (error) {
+        <p class="error-message">{{ error }}</p>
+      }
+
+      <button type="submit">Create Account <span>→</span></button>
+    </form>
+
+    <p class="auth-footer">
+      Already have an account?
+      <a routerLink="/login">Login</a>
+    </p>
+  </div>
+</section>

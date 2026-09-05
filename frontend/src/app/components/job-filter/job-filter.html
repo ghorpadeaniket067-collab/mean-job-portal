@@ -1,0 +1,50 @@
+<div class="filter-card">
+  <div class="filter-header">
+    <span>FILTER JOBS</span>
+    <h3>Refine your search</h3>
+    <p>Find the right opportunity faster.</p>
+  </div>
+
+  <div class="filter-group">
+    <label for="location">Location</label>
+    <input
+      id="location"
+      type="text"
+      name="location"
+      [(ngModel)]="location"
+      placeholder="e.g. Pune"
+    />
+  </div>
+
+  <div class="filter-group">
+    <label for="jobType">Job Type</label>
+    <select id="jobType" name="jobType" [(ngModel)]="jobType">
+      <option value="All">All Types</option>
+      <option value="Full Time">Full Time</option>
+      <option value="Part Time">Part Time</option>
+      <option value="Internship">Internship</option>
+      <option value="Remote">Remote</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label for="experience">Experience</label>
+    <select
+      id="experience"
+      name="experience"
+      [(ngModel)]="experience"
+    >
+      <option value="All">All Experience</option>
+      <option value="Fresher">Fresher</option>
+      <option value="1-2 Years">1-2 Years</option>
+      <option value="2-5 Years">2-5 Years</option>
+    </select>
+  </div>
+
+  <div class="filter-actions">
+    <button type="button" (click)="applyFilter()">Apply Filter</button>
+    <button type="button" class="clear-btn" (click)="clearFilter()">
+      Clear
+    </button>
+  </div>
+</div>

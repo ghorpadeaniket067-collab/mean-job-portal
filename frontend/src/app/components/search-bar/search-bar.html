@@ -1,0 +1,25 @@
+<div class="search-box">
+  <div class="search-field">
+    <label for="keyword">What are you looking for?</label>
+    <input
+      id="keyword"
+      type="text"
+      name="keyword"
+      [(ngModel)]="keyword"
+      placeholder="Job title or skill"
+    />
+  </div>
+
+  <div class="search-field">
+    <label for="location">Location</label>
+    <input
+      id="location"
+      type="text"
+      name="location"
+      [(ngModel)]="location"
+      placeholder="City or remote"
+    />
+  </div>
+
+  <button type="button" (click)="searchJobs()">Search Jobs</button>
+</div>

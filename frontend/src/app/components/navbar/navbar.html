@@ -1,0 +1,51 @@
+<nav class="navbar">
+  <a routerLink="/" class="logo">JobPortal</a>
+
+  <button class="menu-button" (click)="toggleMenu()">
+    ☰
+  </button>
+
+  <div class="nav-links" [class.open]="menuOpen">
+    <a routerLink="/" (click)="menuOpen = false">Home</a>
+
+    <a routerLink="/jobs" (click)="menuOpen = false">Jobs</a>
+
+    <a
+      routerLink="/my-applications"
+      (click)="menuOpen = false">
+      Applications
+    </a>
+
+    <a
+      routerLink="/profile"
+      (click)="menuOpen = false">
+      Profile
+    </a>
+
+    <a
+      routerLink="/recruiter-dashboard"
+      (click)="menuOpen = false">
+      Recruiter
+    </a>
+
+    <a
+      routerLink="/login"
+      (click)="menuOpen = false">
+      Login
+    </a>
+
+    <a
+      routerLink="/register"
+      (click)="menuOpen = false"
+      class="register-btn">
+      Register
+    </a>
+
+    <button
+      type="button"
+      class="logout-btn"
+      (click)="logout()">
+      Logout
+    </button>
+  </div>
+</nav>

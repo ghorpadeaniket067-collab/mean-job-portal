@@ -1,0 +1,212 @@
+<section class="profile-page">
+  <div class="profile-container">
+
+    <div class="profile-header">
+      <div class="profile-avatar">
+        {{ profile.name.charAt(0) || 'U' }}
+      </div>
+
+      <div class="profile-title">
+        <span>MY PROFILE</span>
+        <h1>{{ profile.name || 'Your Name' }}</h1>
+        <p>{{ profile.email || 'Email not added' }}</p>
+      </div>
+    </div>
+
+    @if (message) {
+      <div class="message success-message">{{ message }}</div>
+    }
+
+    @if (error) {
+      <div class="message error-message">{{ error }}</div>
+    }
+
+    <div class="profile-card">
+      <div class="card-heading">
+        <div>
+          <span class="section-label">PERSONAL DETAILS</span>
+          <h2>Personal Information</h2>
+        </div>
+
+        @if (!editMode) {
+          <button type="button" class="primary-btn" (click)="editProfile()">
+            Edit Profile
+          </button>
+        }
+      </div>
+
+      @if (editMode) {
+        <div class="profile-info edit-form">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" [(ngModel)]="profile.name"
+              placeholder="Enter your name">
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" [(ngModel)]="profile.email" disabled>
+          </div>
+
+          <div class="form-group">
+            <label>Location</label>
+            <input type="text" [(ngModel)]="profile.location"
+              placeholder="e.g. Pune">
+          </div>
+
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="text" [(ngModel)]="profile.phone"
+              placeholder="Enter phone number">
+          </div>
+        </div>
+      } @else {
+        <div class="profile-info">
+          <div class="info-item">
+            <span>Full Name</span>
+            <strong>{{ profile.name || 'Not added' }}</strong>
+          </div>
+
+          <div class="info-item">
+            <span>Email</span>
+            <strong>{{ profile.email || 'Not added' }}</strong>
+          </div>
+
+          <div class="info-item">
+            <span>Location</span>
+            <strong>{{ profile.location || 'Not added' }}</strong>
+          </div>
+
+          <div class="info-item">
+            <span>Phone</span>
+            <strong>{{ profile.phone || 'Not added' }}</strong>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="profile-card">
+      <span class="section-label">TECHNICAL PROFILE</span>
+      <h2>Skills</h2>
+
+      @if (editMode) {
+        <input class="full-input" type="text" [(ngModel)]="skillsText"
+          placeholder="Angular, JavaScript, HTML, CSS">
+      } @else {
+        @if (profile.skills.length) {
+          <div class="skills">
+            @for (skill of profile.skills; track skill) {
+              <span>{{ skill }}</span>
+            }
+          </div>
+        } @else {
+          <p class="empty-text">No skills added yet.</p>
+        }
+      }
+    </div>
+
+    <div class="profile-card">
+      <span class="section-label">ACADEMIC BACKGROUND</span>
+      <h2>Education</h2>
+
+      @if (editMode) {
+        <input class="full-input" type="text"
+          [(ngModel)]="profile.education"
+          placeholder="Enter education">
+      } @else {
+        <p class="content-text">{{ profile.education || 'Not added' }}</p>
+      }
+    </div>
+
+    <div class="profile-card">
+      <span class="section-label">CAREER</span>
+      <h2>Experience</h2>
+
+      @if (editMode) {
+        <input class="full-input" type="text"
+          [(ngModel)]="profile.experience"
+          placeholder="Enter experience">
+      } @else {
+        <p class="content-text">{{ profile.experience || 'Not added' }}</p>
+      }
+    </div>
+
+    <div class="profile-card">
+      <span class="section-label">WORK</span>
+      <h2>Projects</h2>
+
+      @if (editMode) {
+        <input class="full-input" type="text" [(ngModel)]="projectsText"
+          placeholder="Job Portal, Task Manager">
+      } @else {
+        @if (profile.projects.length) {
+          <div class="skills">
+            @for (project of profile.projects; track project) {
+              <span>{{ project }}</span>
+            }
+          </div>
+        } @else {
+          <p class="empty-text">No projects added yet.</p>
+        }
+      }
+    </div>
+
+    <div class="resume-card">
+      <div class="resume-info">
+        <span class="section-label">DOCUMENT</span>
+        <h2>Resume</h2>
+        <p>
+          {{ profile.resume ? 'Resume is uploaded and ready to view.'
+          : 'No resume uploaded yet.' }}
+        </p>
+      </div>
+
+      @if (profile.resume) {
+        <a class="resume-btn"
+          [href]="'http://localhost:5000' + profile.resume"
+          target="_blank">
+          View Resume →
+        </a>
+      }
+    </div>
+
+    <div class="upload-card">
+      <div>
+        <strong>Upload Resume</strong>
+        <p>PDF files only, maximum 5 MB.</p>
+      </div>
+
+      <div class="upload-controls">
+        <label for="resume" class="file-btn">Choose PDF</label>
+
+        <input id="resume" type="file"
+          accept=".pdf,application/pdf"
+          (change)="selectResume($event)">
+
+        @if (selectedFile) {
+          <span class="file-name">{{ selectedFile.name }}</span>
+
+          <button type="button" class="primary-btn"
+            (click)="uploadResume()" [disabled]="uploadingResume">
+            {{ uploadingResume ? 'Uploading...' : 'Upload' }}
+          </button>
+        }
+      </div>
+    </div>
+
+    @if (editMode) {
+      <div class="profile-actions">
+        <button type="button" class="primary-btn"
+          (click)="saveProfile()">
+          Save Profile
+        </button>
+
+        <button type="button" class="secondary-btn"
+          (click)="cancelEdit()">
+          Cancel
+        </button>
+      </div>
+    }
+
+  </div>
+</section>

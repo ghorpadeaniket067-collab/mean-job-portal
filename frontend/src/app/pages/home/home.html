@@ -1,0 +1,48 @@
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-tag">Find your next opportunity</span>
+
+    <h1>
+      Find a job that fits your <span>career goals.</span>
+    </h1>
+
+    <p>
+      Discover great job opportunities from companies looking for talented
+      people like you.
+    </p>
+
+    <button type="button" class="hero-btn" (click)="exploreJobs()">
+      Explore Jobs
+    </button>
+  </div>
+</section>
+
+<section class="search-section">
+  <div class="section-heading">
+    <span>SEARCH JOBS</span>
+    <h2>Find your perfect job</h2>
+    <p>Search from thousands of opportunities and take the next step.</p>
+  </div>
+
+  <app-search-bar></app-search-bar>
+</section>
+
+<section class="featured">
+  <div class="section-heading">
+    <span>FEATURED JOBS</span>
+    <h2>Latest opportunities</h2>
+    <p>Explore some of the latest jobs available on JobPortal.</p>
+  </div>
+
+  <div class="job-grid">
+    @for (job of featuredJobs; track job.id) {
+      <app-job-card [job]="job"></app-job-card>
+    }
+  </div>
+
+  <div class="all-jobs">
+    <button type="button" (click)="exploreJobs()">
+      View All Jobs →
+    </button>
+  </div>
+</section>

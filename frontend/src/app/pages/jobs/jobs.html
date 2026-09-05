@@ -1,0 +1,83 @@
+<section class="jobs-page">
+  <div class="jobs-container">
+
+    <div class="page-header">
+      <span>JOB OPPORTUNITIES</span>
+      <h1>Find your next job</h1>
+      <p>Explore opportunities and find a role that matches your skills.</p>
+
+      <div class="search-box">
+        <input
+          type="text"
+          name="search"
+          [(ngModel)]="searchText"
+          (input)="searchJobs()"
+          placeholder="Search job title, company or skill"
+        />
+      </div>
+    </div>
+
+    <div class="jobs-layout">
+      <aside class="filter-area">
+        <app-job-filter
+          (filterChanged)="filterJobs($event)"
+        ></app-job-filter>
+      </aside>
+
+      <div class="jobs-content">
+        <div class="jobs-top">
+          <div>
+            <span class="section-label">AVAILABLE POSITIONS</span>
+            <h2>Latest Jobs</h2>
+          </div>
+
+          @if (!loading) {
+            <span class="job-count">
+              {{ filteredJobs.length }} jobs available
+            </span>
+          }
+        </div>
+
+        @if (loading) {
+          <div class="state-card">
+            <div class="state-icon">•••</div>
+            <h3>Loading jobs...</h3>
+            <p>Please wait while we find the latest opportunities.</p>
+          </div>
+        }
+
+        @if (error && !loading) {
+          <div class="state-card error-card">
+            <div class="state-icon">!</div>
+            <h3>Unable to load jobs</h3>
+            <p>{{ error }}</p>
+            <button type="button" (click)="loadJobs()">Try Again</button>
+          </div>
+        }
+
+        @if (!loading && !error && filteredJobs.length) {
+          <div class="job-grid">
+            @for (job of filteredJobs; track job.id) {
+              <app-job-card [job]="job"></app-job-card>
+            }
+          </div>
+        }
+
+        @if (!loading && !error && !filteredJobs.length) {
+          <div class="state-card">
+            <div class="state-icon">⌕</div>
+
+            @if (jobs.length) {
+              <h3>No matching jobs</h3>
+              <p>Try changing your search or filter options.</p>
+            } @else {
+              <h3>No jobs available</h3>
+              <p>There are no job opportunities available right now.</p>
+            }
+          </div>
+        }
+      </div>
+    </div>
+
+  </div>
+</section>

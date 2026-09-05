@@ -1,0 +1,95 @@
+<section class="applications-page">
+
+  <div class="page-header">
+    <span>APPLICATION MANAGEMENT</span>
+
+    <h1>Manage applications</h1>
+
+    <p>
+      Review candidates and update their application status.
+    </p>
+  </div>
+
+  @if (message) {
+    <div class="message success-message">
+      {{ message }}
+    </div>
+  }
+
+  @if (error) {
+    <div class="message error-message">
+      {{ error }}
+    </div>
+  }
+
+  <div class="applications-card">
+
+    <div class="table-header">
+      <span>Candidate</span>
+      <span>Job</span>
+      <span>Applied</span>
+      <span>Status</span>
+      <span>Action</span>
+    </div>
+
+    @if (applications.length > 0) {
+
+      @for (application of applications; track $index) {
+
+        <div class="application-row">
+
+          <div class="candidate">
+
+            <div class="avatar">
+              {{ application.candidate?.name?.charAt(0) || 'C' }}
+            </div>
+
+            <strong>
+              {{ application.candidate?.name || 'Candidate' }}
+            </strong>
+
+          </div>
+
+          <span>
+            {{ application.job?.title || 'Unknown Job' }}
+          </span>
+
+          <span>
+            {{ application.createdAt | date:'dd MMM yyyy' }}
+          </span>
+
+          <select
+            [value]="application.status"
+            (change)="application.status = $any($event.target).value"
+            class="status-select"
+          >
+            @for (status of statuses; track status) {
+              <option [value]="status">
+                {{ status }}
+              </option>
+            }
+          </select>
+
+          <button
+            type="button"
+            class="update-btn"
+            (click)="updateStatus(application)"
+          >
+            Update
+          </button>
+
+        </div>
+
+      }
+
+    } @else {
+
+      <div class="empty-message">
+        No applications found.
+      </div>
+
+    }
+
+  </div>
+
+</section>

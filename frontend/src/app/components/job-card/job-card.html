@@ -1,0 +1,36 @@
+<article class="job-card">
+  <div class="card-top">
+    <div class="company-logo">
+      {{ job.company.charAt(0) }}
+    </div>
+
+    <span class="job-type">{{ job.type }}</span>
+  </div>
+
+  <div class="job-title">
+    <h3>{{ job.title }}</h3>
+    <p>{{ job.company }}</p>
+  </div>
+
+  <div class="job-info">
+    <span>Location</span>
+    <strong>{{ job.location }}</strong>
+
+    <span>Salary</span>
+    <strong>{{ job.salary }}</strong>
+  </div>
+
+  <div class="skills">
+    @for (skill of job.skills; track skill) {
+      <span>{{ skill }}</span>
+    }
+  </div>
+
+  <div class="card-bottom">
+    <small>{{ job.postedDate }}</small>
+
+    <a [routerLink]="['/jobs', job.id]">
+      View Details →
+    </a>
+  </div>
+</article>

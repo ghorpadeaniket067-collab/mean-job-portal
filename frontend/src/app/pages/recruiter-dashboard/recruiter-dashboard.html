@@ -1,0 +1,100 @@
+<section class="dashboard-page">
+  <div class="dashboard-container">
+
+    <div class="page-header">
+      <div>
+        <span>RECRUITER DASHBOARD</span>
+        <h1>Manage your hiring</h1>
+        <p>Track jobs and applications from one place.</p>
+      </div>
+
+      <a routerLink="/post-job" class="post-btn">+ Post a Job</a>
+    </div>
+
+    @if (error) {
+      <p class="error-message">{{ error }}</p>
+    }
+
+    <div class="stats-grid">
+      <div class="stat-card jobs">
+        <div class="stat-icon">J</div>
+        <div>
+          <span>Active Jobs</span>
+          <strong>{{ stats.jobs }}</strong>
+          <small>Currently live</small>
+        </div>
+      </div>
+
+      <div class="stat-card applications">
+        <div class="stat-icon">A</div>
+        <div>
+          <span>Total Applications</span>
+          <strong>{{ stats.applications }}</strong>
+          <small>Applications received</small>
+        </div>
+      </div>
+
+      <div class="stat-card shortlisted">
+        <div class="stat-icon">S</div>
+        <div>
+          <span>Shortlisted</span>
+          <strong>{{ stats.shortlisted }}</strong>
+          <small>Selected candidates</small>
+        </div>
+      </div>
+
+      <div class="stat-card interviews">
+        <div class="stat-icon">I</div>
+        <div>
+          <span>Interviews</span>
+          <strong>{{ stats.interviews }}</strong>
+          <small>Interview stage</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-card">
+      <div class="card-heading">
+        <div>
+          <span>HIRING ACTIVITY</span>
+          <h2>Recent applications</h2>
+        </div>
+
+        <a routerLink="/manage-applications">View All →</a>
+      </div>
+
+      <div class="activity-list">
+        @for (application of applications.slice(0, 3); track application._id) {
+          <div class="activity-item">
+            <div class="avatar">
+              {{ application.candidate?.name?.charAt(0) || 'C' }}
+            </div>
+
+            <div class="activity-info">
+              <strong>{{ application.job?.title }}</strong>
+              <p>
+                Application received from
+                {{ application.candidate?.name || 'Candidate' }}
+              </p>
+            </div>
+
+            <span
+              class="status"
+              [class.selected]="application.status === 'Selected'"
+              [class.rejected]="application.status === 'Rejected'"
+              [class.interview]="application.status === 'Interview'"
+              [class.shortlisted]="application.status === 'Shortlisted'"
+            >
+              {{ application.status }}
+            </span>
+          </div>
+        }
+      </div>
+
+      @if (applications.length === 0 && !error) {
+        <div class="empty-state">No applications yet.</div>
+      }
+    </div>
+
+  </div>
+</section>

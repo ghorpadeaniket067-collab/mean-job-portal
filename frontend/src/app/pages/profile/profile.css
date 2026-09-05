@@ -1,0 +1,280 @@
+.profile-page {
+  min-height: 100vh;
+  padding: 50px 5%;
+  background: #f5f8ff;
+}
+
+.profile-container {
+  max-width: 950px;
+  margin: auto;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+  margin-bottom: 18px;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  border-radius: 17px;
+  box-shadow: 0 12px 28px rgba(37, 99, 235, .18);
+}
+
+.profile-avatar {
+  width: 70px;
+  height: 70px;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  color: #2563eb;
+  background: #fff;
+  border: 4px solid #dbeafe;
+  border-radius: 50%;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.profile-title span,
+.section-label {
+  color: #2563eb;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.profile-title span {
+  color: #dbeafe;
+}
+
+.profile-title h1 {
+  margin: 6px 0;
+  font-size: 29px;
+}
+
+.profile-title p {
+  margin: 0;
+  color: #dbeafe;
+  font-size: 13px;
+}
+
+.profile-card,
+.resume-card,
+.upload-card {
+  padding: 23px;
+  margin-bottom: 15px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 13px;
+  box-shadow: 0 7px 20px rgba(15, 23, 42, .04);
+}
+
+.profile-card h2,
+.resume-card h2 {
+  margin: 6px 0 17px;
+  color: #0f172a;
+  font-size: 18px;
+}
+
+.card-heading,
+.resume-card,
+.upload-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.profile-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+
+.info-item {
+  padding: 14px;
+  background: #f8fafc;
+  border-radius: 9px;
+}
+
+.info-item span {
+  display: block;
+  margin-bottom: 5px;
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+.info-item strong {
+  color: #334155;
+  font-size: 13px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skills span {
+  padding: 7px 11px;
+  color: #1d4ed8;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.content-text,
+.empty-text,
+.resume-info p,
+.upload-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.edit-form {
+  margin-top: 17px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.form-group input,
+.full-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 12px;
+  border: 1px solid #d5deeb;
+  border-radius: 8px;
+  outline: none;
+  font-size: 13px;
+}
+
+.form-group input:focus,
+.full-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px #eff6ff;
+}
+
+.full-input {
+  margin-top: 5px;
+}
+
+.primary-btn,
+.secondary-btn,
+.resume-btn,
+.file-btn {
+  padding: 9px 13px;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.primary-btn {
+  color: #fff;
+  background: #2563eb;
+}
+
+.primary-btn:hover {
+  background: #1d4ed8;
+}
+
+.secondary-btn,
+.file-btn {
+  color: #475569;
+  background: #f1f5f9;
+}
+
+.resume-btn {
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+.upload-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.upload-controls input {
+  display: none;
+}
+
+.file-name {
+  max-width: 150px;
+  overflow: hidden;
+  color: #64748b;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.message {
+  padding: 10px 13px;
+  margin-bottom: 15px;
+  border-radius: 7px;
+  font-size: 12px;
+}
+
+.success-message {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.error-message {
+  color: #b91c1c;
+  background: #fee2e2;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+@media (max-width: 650px) {
+  .profile-page {
+    padding: 35px 5%;
+  }
+
+  .profile-header {
+    padding: 23px;
+  }
+
+  .profile-info {
+    grid-template-columns: 1fr;
+  }
+
+  .card-heading,
+  .resume-card,
+  .upload-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .profile-actions {
+    justify-content: stretch;
+  }
+
+  .profile-actions button {
+    flex: 1;
+  }
+}

@@ -1,0 +1,130 @@
+.job-card {
+  padding: 21px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 7px 20px rgba(15, 23, 42, .04);
+  transition: .2s;
+}
+
+.job-card:hover {
+  transform: translateY(-3px);
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, .08);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.company-logo {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: #2563eb;
+  border-radius: 11px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.job-type {
+  padding: 6px 10px;
+  color: #2563eb;
+  background: #eff6ff;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.job-title {
+  margin: 17px 0;
+}
+
+.job-card h3 {
+  margin: 0 0 5px;
+  color: #0f172a;
+  font-size: 18px;
+}
+
+.job-title p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.job-info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 7px 12px;
+  padding: 13px;
+  margin-bottom: 16px;
+  background: #f8fafc;
+  border-radius: 9px;
+  font-size: 12px;
+}
+
+.job-info span {
+  color: #94a3b8;
+}
+
+.job-info strong {
+  color: #475569;
+  font-weight: 600;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.skills span {
+  padding: 6px 9px;
+  color: #475569;
+  background: #f1f5f9;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 15px;
+  margin-top: 18px;
+  border-top: 1px solid #eef2f7;
+}
+
+.card-bottom small {
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+.card-bottom a {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.card-bottom a:hover {
+  color: #1d4ed8;
+}
+
+@media (max-width: 500px) {
+  .job-card {
+    padding: 18px;
+  }
+
+  .card-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

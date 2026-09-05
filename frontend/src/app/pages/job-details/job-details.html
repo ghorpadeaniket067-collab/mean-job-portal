@@ -1,0 +1,92 @@
+<section class="details-page">
+  <div class="details-container">
+
+    <a routerLink="/jobs" class="back-link">← Back to Jobs</a>
+
+    @if (job) {
+      <div class="details-card">
+
+        <div class="details-header">
+          <div>
+            <span class="job-type">{{ job.type }}</span>
+            <h1>{{ job.title }}</h1>
+            <p class="company">{{ job.company }}</p>
+          </div>
+
+          <div class="company-logo">
+            {{ job.company.charAt(0) }}
+          </div>
+        </div>
+
+        <div class="job-info">
+          <div>
+            <small>LOCATION</small>
+            <strong>{{ job.location }}</strong>
+          </div>
+
+          <div>
+            <small>SALARY</small>
+            <strong>{{ job.salary }}</strong>
+          </div>
+
+          <div>
+            <small>POSTED</small>
+            <strong>{{ job.postedDate }}</strong>
+          </div>
+        </div>
+
+        <div class="details-section">
+          <span class="section-label">ABOUT THE ROLE</span>
+          <h2>Job Description</h2>
+          <p>{{ job.description }}</p>
+        </div>
+
+        <div class="details-section">
+          <span class="section-label">REQUIREMENTS</span>
+          <h2>Required Skills</h2>
+
+          @if (job.skills && job.skills.length) {
+            <div class="skills">
+              @for (skill of job.skills; track skill) {
+                <span>{{ skill }}</span>
+              }
+            </div>
+          } @else {
+            <p>No skills listed.</p>
+          }
+        </div>
+
+        @if (message) {
+          <p class="success-message">{{ message }}</p>
+        }
+
+        @if (error) {
+          <p class="error-message">{{ error }}</p>
+        }
+
+        <div class="details-actions">
+          <button type="button" (click)="applyForJob()">
+            Apply Now →
+          </button>
+        </div>
+
+      </div>
+
+    } @else if (error) {
+      <div class="details-card state-card">
+        <div class="state-icon">!</div>
+        <h3>Unable to load job</h3>
+        <p class="error-message">{{ error }}</p>
+        <a routerLink="/jobs" class="back-link">← Back to Jobs</a>
+      </div>
+
+    } @else {
+      <div class="details-card state-card">
+        <div class="state-icon">•••</div>
+        <h3>Loading job details...</h3>
+        <p>Please wait while we load this opportunity.</p>
+      </div>
+    }
+
+  </div>
+</section>

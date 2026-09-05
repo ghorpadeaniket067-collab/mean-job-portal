@@ -1,0 +1,145 @@
+.hero {
+  min-height: 500px;
+  padding: 80px 6%;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #eff6ff, #f8fafc);
+  box-sizing: border-box;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-tag,
+.section-heading > span {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.hero h1 {
+  max-width: 800px;
+  margin: 18px auto;
+  color: #0f172a;
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+}
+
+.hero h1 span {
+  color: #2563eb;
+}
+
+.hero p {
+  max-width: 620px;
+  margin: 0 auto 30px;
+  color: #64748b;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 12px 22px;
+  color: #ffffff;
+  background: #2563eb;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.hero-btn:hover {
+  background: #1d4ed8;
+}
+
+.search-section,
+.featured {
+  padding: 75px 6%;
+}
+
+.search-section {
+  background: #ffffff;
+}
+
+.section-heading {
+  max-width: 650px;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+.section-heading h2 {
+  margin: 10px 0;
+  color: #0f172a;
+  font-size: 32px;
+}
+
+.section-heading p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.featured {
+  background: #f8fafc;
+}
+
+.job-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.all-jobs {
+  margin-top: 35px;
+  text-align: center;
+}
+
+.all-jobs a {
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (max-width: 850px) {
+  .job-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 430px;
+    padding: 60px 5%;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .search-section,
+  .featured {
+    padding: 55px 5%;
+  }
+
+  .section-heading h2 {
+    font-size: 27px;
+  }
+
+  .job-grid {
+    grid-template-columns: 1fr;
+  }
+}

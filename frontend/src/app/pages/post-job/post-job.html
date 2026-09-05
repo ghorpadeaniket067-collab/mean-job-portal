@@ -1,0 +1,120 @@
+<section class="form-page">
+  <div class="form-container">
+
+    <div class="page-header">
+      <div class="header-icon">+</div>
+      <span>POST A JOB</span>
+      <h1>Create a new job</h1>
+      <p>Add the details below to publish your job opportunity.</p>
+    </div>
+
+    @if (message) {
+      <p class="success-message">{{ message }}</p>
+    }
+
+    @if (error) {
+      <p class="error-message">{{ error }}</p>
+    }
+
+    <form (ngSubmit)="postJob()">
+      <div class="form-section">
+        <span class="section-label">JOB INFORMATION</span>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="title">Job Title</label>
+            <input
+              id="title"
+              name="title"
+              type="text"
+              [(ngModel)]="job.title"
+              placeholder="e.g. Angular Developer"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input
+              id="company"
+              name="company"
+              type="text"
+              [(ngModel)]="job.company"
+              placeholder="Company name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input
+              id="location"
+              name="location"
+              type="text"
+              [(ngModel)]="job.location"
+              placeholder="e.g. Pune"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="salary">Salary</label>
+            <input
+              id="salary"
+              name="salary"
+              type="text"
+              [(ngModel)]="job.salary"
+              placeholder="e.g. ₹4 - ₹6 LPA"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="type">Job Type</label>
+            <select
+              id="type"
+              name="type"
+              [(ngModel)]="job.type"
+            >
+              <option value="Full Time">Full Time</option>
+              <option value="Part Time">Part Time</option>
+              <option value="Internship">Internship</option>
+              <option value="Remote">Remote</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="skills">Skills</label>
+            <input
+              id="skills"
+              name="skills"
+              type="text"
+              [(ngModel)]="job.skills"
+              placeholder="Angular, TypeScript, HTML"
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <span class="section-label">JOB DETAILS</span>
+
+        <div class="form-group">
+          <label for="description">Job Description</label>
+          <textarea
+            id="description"
+            name="description"
+            [(ngModel)]="job.description"
+            placeholder="Describe the job responsibilities and requirements"
+            rows="6"
+            required
+          ></textarea>
+        </div>
+      </div>
+
+      <button type="submit">Publish Job →</button>
+    </form>
+
+  </div>
+</section>
