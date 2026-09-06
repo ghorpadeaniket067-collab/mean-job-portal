@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
@@ -9,11 +9,33 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class NavbarComponent {
   menuOpen = false;
+  userName = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.loadUser();
+  }
+
+  loadUser() {
+    const user = localStorage.getItem('user');
+
+    if (!user) {
+      return;
+    }
+
+    try {
+      const userData = JSON.parse(user);
+      this.userName = userData.name || 'User';
+    } catch {
+      this.userName = 'User';
+    }
+  }
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
   }
 
   logout() {

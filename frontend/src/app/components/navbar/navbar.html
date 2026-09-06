@@ -1,51 +1,90 @@
-<nav class="navbar">
-  <a routerLink="/" class="logo">JobPortal</a>
+﻿<nav class="navbar">
 
-  <button class="menu-button" (click)="toggleMenu()">
+  <a routerLink="/" class="logo" (click)="closeMenu()">
+    <span class="logo-icon">Q</span>
+
+    <span class="logo-text">
+      <strong>Job<span>Portal</span></strong>
+      <small>YOUR CAREER PARTNER</small>
+    </span>
+  </a>
+
+  <button
+    type="button"
+    class="menu-button"
+    (click)="toggleMenu()">
     ☰
   </button>
 
   <div class="nav-links" [class.open]="menuOpen">
-    <a routerLink="/" (click)="menuOpen = false">Home</a>
 
-    <a routerLink="/jobs" (click)="menuOpen = false">Jobs</a>
+    <a
+      routerLink="/"
+      (click)="closeMenu()">
+      Home
+    </a>
+
+    <a
+      routerLink="/jobs"
+      (click)="closeMenu()">
+      Jobs
+    </a>
 
     <a
       routerLink="/my-applications"
-      (click)="menuOpen = false">
+      (click)="closeMenu()">
       Applications
     </a>
 
     <a
       routerLink="/profile"
-      (click)="menuOpen = false">
+      (click)="closeMenu()">
       Profile
     </a>
 
     <a
       routerLink="/recruiter-dashboard"
-      (click)="menuOpen = false">
+      (click)="closeMenu()">
       Recruiter
     </a>
 
     <a
       routerLink="/login"
-      (click)="menuOpen = false">
+      (click)="closeMenu()">
       Login
     </a>
 
     <a
       routerLink="/register"
-      (click)="menuOpen = false"
-      class="register-btn">
+      class="register-btn"
+      (click)="closeMenu()">
       Register
     </a>
 
-    <button
-      type="button"
-      class="logout-btn"
-      (click)="logout()">
-      Logout
-    </button>
+    @if (userName) {
+      <div class="user-menu">
+
+        <img
+          src="/images/user-avatar.png"
+          alt="User Avatar"
+          class="user-avatar"
+        />
+
+        <span class="user-name">
+          Hi, {{ userName }}
+        </span>
+
+        <span class="user-arrow">⌄</span>
+
+      </div>
+
+      <button
+        type="button"
+        class="logout-btn"
+        (click)="logout()">
+        Logout
+      </button>
+    }
   </div>
+
 </nav>
