@@ -1,48 +1,145 @@
-<section class="hero">
+﻿<section class="hero">
   <div class="hero-content">
-    <span class="hero-tag">Find your next opportunity</span>
 
-    <h1>
-      Find a job that fits your <span>career goals.</span>
-    </h1>
+    <div class="hero-text">
+      <span class="hero-tag">YOUR NEXT CAREER MOVE</span>
 
-    <p>
-      Discover great job opportunities from companies looking for talented
-      people like you.
-    </p>
+      <h1>
+        Find the right job for your
+        <span>career.</span>
+      </h1>
 
-    <button type="button" class="hero-btn" (click)="exploreJobs()">
-      Explore Jobs
-    </button>
+      <p>
+        Discover opportunities from companies looking for talented
+        professionals. Find a role that matches your skills and goals.
+      </p>
+
+      <div class="hero-actions">
+        <button
+          type="button"
+          class="primary-btn"
+          (click)="exploreJobs()">
+          Get Started →
+        </button>
+
+        <button
+          type="button"
+          class="secondary-btn"
+          (click)="viewJobs()">
+          Browse Jobs
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img
+        src="/images/job-hero.png"
+        alt="Job search illustration"
+      />
+    </div>
+
   </div>
 </section>
 
-<section class="search-section">
+<section class="stats">
+  <div class="stats-container">
+
+    <div class="stat-item">
+      <strong>10K+</strong>
+      <span>Active Jobs</span>
+    </div>
+
+    <div class="stat-item">
+      <strong>5K+</strong>
+      <span>Companies</span>
+    </div>
+
+    <div class="stat-item">
+      <strong>8K+</strong>
+      <span>Job Seekers</span>
+    </div>
+
+    <div class="stat-item">
+      <strong>95%</strong>
+      <span>Success Rate</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="categories">
   <div class="section-heading">
-    <span>SEARCH JOBS</span>
-    <h2>Find your perfect job</h2>
-    <p>Search from thousands of opportunities and take the next step.</p>
+    <span>EXPLORE CATEGORIES</span>
+
+    <h2>Find jobs by category</h2>
+
+    <p>
+      Explore opportunities across different industries and career fields.
+    </p>
   </div>
 
-  <app-search-bar></app-search-bar>
+  <div class="category-grid">
+    @for (category of categories; track category) {
+      <button
+        type="button"
+        class="category-card"
+        (click)="viewJobs()">
+
+        <div class="category-icon">→</div>
+
+        <strong>{{ category }}</strong>
+
+        <span>Explore jobs</span>
+
+      </button>
+    }
+  </div>
 </section>
 
 <section class="featured">
   <div class="section-heading">
     <span>FEATURED JOBS</span>
+
     <h2>Latest opportunities</h2>
-    <p>Explore some of the latest jobs available on JobPortal.</p>
+
+    <p>
+      Explore some of the latest opportunities available on JobPortal.
+    </p>
   </div>
 
   <div class="job-grid">
     @for (job of featuredJobs; track job.id) {
-      <app-job-card [job]="job"></app-job-card>
+      <app-job-card
+        [job]="job">
+      </app-job-card>
     }
   </div>
 
   <div class="all-jobs">
-    <button type="button" (click)="exploreJobs()">
+    <button
+      type="button"
+      (click)="viewJobs()">
       View All Jobs →
     </button>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-content">
+
+    <span>START YOUR JOURNEY</span>
+
+    <h2>Ready to find your next opportunity?</h2>
+
+    <p>
+      Create your account and start exploring jobs that match your career.
+    </p>
+
+    <button
+      type="button"
+      (click)="exploreJobs()">
+      Create Your Account →
+    </button>
+
   </div>
 </section>

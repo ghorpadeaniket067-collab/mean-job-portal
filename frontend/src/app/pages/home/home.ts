@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { JobCardComponent } from '../../components/job-card/job-card';
-import { SearchBarComponent } from '../../components/search-bar/search-bar';
 
 @Component({
   selector: 'app-home',
-  imports: [JobCardComponent, SearchBarComponent],
+  imports: [JobCardComponent],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -50,9 +49,22 @@ export class HomeComponent {
     }
   ];
 
+  categories = [
+    'IT & Software',
+    'Design',
+    'Marketing',
+    'Finance',
+    'Human Resources',
+    'Sales'
+  ];
+
   constructor(private router: Router) {}
 
   exploreJobs() {
     this.router.navigate(['/register']);
+  }
+
+  viewJobs() {
+    this.router.navigate(['/jobs']);
   }
 }
